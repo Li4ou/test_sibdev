@@ -1,0 +1,5 @@
+/backend/.idea
+/.flake8
+.env
+.idea
+__pycache__
