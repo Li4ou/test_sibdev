@@ -5,4 +5,4 @@ from .models import PurchaseHistory
 class SerializersPurchaseHistoryCreate(serializers.ModelSerializer):
     class Meta:
         model = PurchaseHistory
-        fields = ('customer', 'product', "total", 'quantity', 'date')
+        fields = ('customer', 'item', "total", 'quantity', 'date')
