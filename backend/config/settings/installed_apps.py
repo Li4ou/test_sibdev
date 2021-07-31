@@ -7,7 +7,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCAL_APPS = [
+LOCAL_APPS = ['api',
+              'rest_framework',
 ]
 
 INSTALLED_APPS += LOCAL_APPS
