@@ -2,6 +2,7 @@ import csv
 
 from rest_framework.parsers import BaseParser
 
+
 class CSVTextParser(BaseParser):
     media_type = 'multipart/form-data'
 
@@ -13,4 +14,9 @@ class CSVTextParser(BaseParser):
         charset = media_type_params.get('charset', 'utf-8')
         txt = stream.FILES.get('file').read().decode(charset)
         csv_table = list(csv.DictReader(txt.splitlines()))
-        return csv_table
+        p = []
+        for i in csv_table:
+            i['customer'] = {'login': i['customer'], 'money_spent': i['total']}
+            i['item'] = {'name': i['item']}
+            p.append(i)
+        return p
