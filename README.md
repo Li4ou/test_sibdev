@@ -61,7 +61,7 @@
 
 ##### Команды для первого запуска
   
-*  `cp backend/.env.template backend/.env`
+*  `cp backend/.env.template .backend/.env`
 * `docker-compose build` - создать контейнеры docker
 * `fab dev` - зупустить веб приложение
 * `fab migrate` - применить миграции
