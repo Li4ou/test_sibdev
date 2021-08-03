@@ -16,7 +16,7 @@ class ProductSerializers(serializers.ModelSerializer):
         fields = ['name']
 
 
-class CustomerSerializers(serializers.ModelSerializer):
+class CustomerSerializersGet(serializers.ModelSerializer):
     username = serializers.CharField(source='login')
 
 
@@ -25,8 +25,14 @@ class CustomerSerializers(serializers.ModelSerializer):
         fields = ['username', 'money_spent', ]
 
 
+class CustomerSerializersPost(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ['login', 'money_spent', ]
+
+
 class PurchaseHistorySerializers(serializers.ModelSerializer):
-    customer = CustomerSerializers()
+    customer = CustomerSerializersPost()
     item = ProductSerializers()
 
     class Meta:
