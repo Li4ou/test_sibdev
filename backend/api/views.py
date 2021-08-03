@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
 
 from .serializer import PurchaseHistorySerializers
-from .serializer import CustomerSerializers
+from .serializer import CustomerSerializersGet
 from .parsers import CSVTextParser
 from .models import Customer
 
@@ -30,7 +30,7 @@ class CsvViewsFiles(ModelViewSet):
 
 
 class CustomerView(ListAPIView):
-    serializer_class = CustomerSerializers
+    serializer_class = CustomerSerializersGet
     queryset = Customer.objects.all()[:5]
 
     def list(self, request, *args, **kwargs):
